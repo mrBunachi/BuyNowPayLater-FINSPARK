@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Dự đoán BNPL-FINSPARK</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Nhập thông tin khách hàng</h2>
+    <form method="POST" action="/predict">
+      <label>
+        Tuổi
+        <input type="number" name="tuoi" required />
+      </label>
+
+      <label>
+        Giới tính
+        <select name="gioi_tinh" required>
+          <option value="0">Nam</option>
+          <option value="1">Nữ</option>
+        </select>
+      </label>
+
+      <label>
+        Thu nhập
+        <input type="number" name="thu_nhap" step="0.01" required />
+      </label>
+
+      <label>
+        Tỉnh thành
+        <select name="tinh_thanh" required>
+          <option>HCM</option>
+          <option>HN</option>
+          <option>DaNang</option>
+          <option>CanTho</option>
+          <option>HaiPhong</option>
+        </select>
+      </label>
+
+      <label>
+        Nghề nghiệp
+        <select name="nghe_nghiep" required>
+          <option value="van_phong">Văn phòng</option>
+          <option value="lao_dong">Lao động</option>
+          <option value="tu_kinh_doanh">Tự kinh doanh</option>
+          <option value="hoc_sinh">Học sinh</option>
+          <option value="khac">Khác</option>
+        </select>
+      </label>
+
+      <label>
+        Tần suất mua hàng
+        <input type="number" name="tan_suat_mua_hang" required />
+      </label>
+
+      <label>
+        Giá trị TB đơn hàng
+        <input type="number" name="gia_tri_tb_don" step="0.01" required />
+      </label>
+
+      <label>
+        Số lần trả trễ
+        <input type="number" name="so_lan_tra_tre" required />
+      </label>
+
+      <label>
+        Nợ xấu (0/1)
+        <input type="number" name="no_xau" min="0" max="1" required />
+      </label>
+
+      <label>
+        DSR
+        <input type="number" name="dsr" step="0.01" placeholder="Ví dụ: 0.4" required />
+      </label>
+
+      <input type="submit" value="Dự đoán">
+    </form>
+
+    <!-- {% if result %} -->
+      <h3>Kết quả: {{ result }}</h3>
+    <!-- {% endif %} -->
+  </div>
+</body>
+</html>
